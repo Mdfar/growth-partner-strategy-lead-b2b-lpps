@@ -1,0 +1,3 @@
+-- Schema for tracking multi-country partner performance CREATE TABLE partners ( id SERIAL PRIMARY KEY, name VARCHAR(255), country_code CHAR(2), -- KE, RW, GH partner_type VARCHAR(50), trust_score DECIMAL, status VARCHAR(20) DEFAULT 'pending', created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP );
+
+CREATE TABLE partner_commissions ( id SERIAL PRIMARY KEY, partner_id INT REFERENCES partners(id), deal_value DECIMAL, currency CHAR(3), commission_amount DECIMAL, payment_status VARCHAR(20) -- paid, pending, disputed );
